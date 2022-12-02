@@ -25,7 +25,7 @@ def calorie_counting():
                 buffer += int(line.rstrip("\n"))
     return buffer if buffer > max_calorie else max_calorie
 ``` 
-Since the file is being read line by line memory consumption is minimal and we only need 2 variables to store value between loop:
+Since the file is being read line by line memory consumption is minimal and we only need 2 variables to store values between loop:
 - `buffer` to store the total amount of calories held by a single Elf
 - `max_calorie` to store the maximum amount held by one of the Elf
 
