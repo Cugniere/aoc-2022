@@ -88,3 +88,25 @@ def rps_strategy():
 ```
 
 The `play` function compare both players hand and return either `3` plus the hand value if it's a tie, `6` plus the hand value if we're winning and just the hand value if we are losing. 
+
+### Part Two
+
+Exactly the same as before except we need to change the value returned depending on the adversaryhand:
+```python
+def play(a, b):
+    a = ord(a) - 64
+    b = ord(b) - 87
+    if b == 1:
+        return (3 * (a == 1)) + (a - 1)
+    elif b == 2:
+        return 3 + a
+    return 6 + (a % 3) + 1
+
+
+def rps_strategy():
+    score = 0
+    with open("./input") as file:
+        for line in file:
+            score += play(*line.rstrip("\n").split(" "))
+    return score
+```
