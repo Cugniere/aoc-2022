@@ -91,7 +91,7 @@ The `play` function compare both players hand and return either `3` plus the han
 
 ### Part Two
 
-Exactly the same as before except we need to change the value returned depending on the adversaryhand:
+Exactly the same as before except we need to change the value returned depending on the adversary hand:
 ```python
 def play(a, b):
     a = ord(a) - 64
