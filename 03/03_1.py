@@ -1,11 +1,9 @@
 def item_management(item_list):
     duplicate = ord(
-        next(
-            iter(
-                set(item_list[: len(item_list) // 2])
-                & set(item_list[len(item_list) // 2 :])
-            )
-        )
+        (
+            set(item_list[: len(item_list) // 2])
+            & set(item_list[len(item_list) // 2 :])
+        ).pop()
     )
     if duplicate >= 97:
         return duplicate - 96

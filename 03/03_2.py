@@ -1,5 +1,5 @@
 def group_identification(a, b, c):
-    char = ord(next(iter(set(a) & set(b) & set(c))))
+    char = ord((set(a) & set(b) & set(c)).pop())
     if char >= 97:
         return char - 96
     else:
