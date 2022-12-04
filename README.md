@@ -203,7 +203,7 @@ Not much magic here, I manually compare lower and higher bounds for the pairs in
 
 ### Part Two
 
-Second was easier, we only need to find if pair are at least overlapping:
+Second part was even easier, we only need to find if pair are at least overlapping:
 ```python
 def pair_inclusion(a, b):
     a = [int(x) for x in a.split("-")]
