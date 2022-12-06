@@ -305,3 +305,32 @@ def supply_stacks():
                 move_crates(stacks, *map(int, re.findall("([\d]+)", line)))
     return "".join([stack.pop() for stack in stacks.values()])
 ```
+
+## Day 6: Tuning Trouble
+
+### Part One
+
+Today's problem is really basic, we only need to use properties of stack and set in order to be sure that all characters are different:
+```python
+import collections
+
+
+def tuning_trouble(signal_length):
+    buffer = collections.deque()
+    with open("./input") as file:
+        line = file.read()
+        for index, char in enumerate(line):
+            buffer.append(char)
+            if len(buffer) == signal_length:
+                if len(set(buffer)) == signal_length:
+                    return index + 1
+                buffer.popleft()
+```
+
+### Part Two
+
+Same as previous part except we need to call the function with `signal_length = 14`.
+
+[instructions](https://adventofcode.com/2022/day/1)
+
+### Part One
