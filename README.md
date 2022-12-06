@@ -333,4 +333,3 @@ Same as previous part except we need to call the function with `signal_length = 
 
 [instructions](https://adventofcode.com/2022/day/1)
 
-### Part One
