@@ -308,6 +308,8 @@ def supply_stacks():
 
 ## Day 6: Tuning Trouble
 
+[instructions](https://adventofcode.com/2022/day/1)
+
 ### Part One
 
 Today's problem is really basic, we only need to use properties of stack and set in order to be sure that all characters are different:
@@ -331,5 +333,4 @@ def tuning_trouble(signal_length):
 
 Same as previous part except we need to call the function with `signal_length = 14`.
 
-[instructions](https://adventofcode.com/2022/day/1)
 
