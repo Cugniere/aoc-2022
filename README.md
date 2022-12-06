@@ -308,7 +308,7 @@ def supply_stacks():
 
 ## Day 6: Tuning Trouble
 
-[instructions](https://adventofcode.com/2022/day/1)
+[instructions](https://adventofcode.com/2022/day/6)
 
 ### Part One
 
