@@ -233,7 +233,7 @@ Today's challenge was pretty fun! The goal was to move around stack of crates wh
 I used some simple code and (again) a `deque` in order to use as less memory as possible:
 ```python
 import collections
-
+import re
 
 def move_crates(stacks, crates, from_stack, to_stack):
     for index in range(crates):
@@ -257,15 +257,10 @@ def supply_stacks():
                 if line == "\n":
                     parse_stacks = False
                 else:
-                    fill_stack(
-                        stacks,
-                        [line[index : index + 1] for index in range(1, len(line), 4)],
-                    )
+                    fill_stack(stacks, line[1::4])
             else:
-                move_crates(
-                    stacks, *[int(line.split(" ")[index]) for index in [1, 3, 5]]
-                )
-    return "".join([stacks[i + 1].pop() for i in range(len(stacks))])
+                move_crates(stacks, *map(int, re.findall("([\d]+)", line)))
+    return "".join([stack.pop() for stack in stacks.values()])
 ```
 The code is a bit messy so here are some explanations:
 - when reading the input lines in the `supply_stack` function I first parse the crates stacks and store them in `stacks`, a `dict` of `deques`. Using `deques` allow to insert items at index `0` without much memory consumption
@@ -278,7 +273,7 @@ Interestingly, using `deque` in the fist part makes things more complex in the s
 The code is almost the same as for the first part, except that we need a temporary buffer to hold the crates in their right order:
 ```python
 import collections
-
+import re
 
 def move_crates(stacks, crates, from_stack, to_stack):
     crane_crates = collections.deque(
@@ -305,13 +300,8 @@ def supply_stacks():
                 if line == "\n":
                     parse_stacks = False
                 else:
-                    fill_stack(
-                        stacks,
-                        [line[index : index + 1] for index in range(1, len(line), 4)],
-                    )
+                    fill_stack(stacks, line[1::4])
             else:
-                move_crates(
-                    stacks, *[int(line.split(" ")[index]) for index in [1, 3, 5]]
-                )
-    return "".join([stacks[i + 1].pop() for i in range(len(stacks))])
+                move_crates(stacks, *map(int, re.findall("([\d]+)", line)))
+    return "".join([stack.pop() for stack in stacks.values()])
 ```
