@@ -1,18 +1,5 @@
 from collections import deque
 
-def print_graph(graph):
-    rows = []
-    for line in graph:
-        row = []
-        for char in line:
-            if(len(f"{char}") == 1):
-                row.append(f"0{char}")
-            else:
-                row.append(f"{char}")
-        rows.append(row)
-    for row in rows:
-        print(" ".join(row))
-
 
 class Dijkstra():
     def __init__(self,grid,start):
