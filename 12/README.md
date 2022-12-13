@@ -4,7 +4,7 @@
 
 ## Part One
 
-I didn't had a lot of time to solve today's problem so I went to the simplest solution I could find, using Dijkstra to find the shortest path from the starting point to the ending point.
+I didn't had a lot of time to solve today's problem so I went to the simplest solution I could find, using breadth first search to find the shortest path from the starting point to the ending point.
 
 ```python
 from collections import deque
