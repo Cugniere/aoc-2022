@@ -1,6 +1,6 @@
 from collections import deque
 
-class Dijkstra():
+class BFS():
     def __init__(self,grid,start):
         self.grid = grid
         self.start = start
@@ -61,7 +61,7 @@ def hill_climbing():
                     neighbors.append(f"{x}_{y+1}")
                 graph[f"{x}_{y}"] = neighbors
 
-        result = Dijkstra(graph,points["end_point"]).visit_node()
+        result = BFS(graph,points["end_point"]).visit_node()
         min_walk = float('inf')
         for point in result:
             if(point in points["start_points"] and result[point] < min_walk):

@@ -1,7 +1,7 @@
 from collections import deque
 
 
-class Dijkstra():
+class BFS():
     def __init__(self,grid,start):
         self.grid = grid
         self.start = start
@@ -63,7 +63,7 @@ def hill_climbing():
                     neighbors.append(f"{x}_{y+1}")
                 graph[f"{x}_{y}"] = neighbors
 
-        return Dijkstra(graph,points["start_point"]).visit_node()[points["end_point"]]
+        return BFS(graph,points["start_point"]).visit_node()[points["end_point"]]
 
 
 print(hill_climbing())
