@@ -23,7 +23,7 @@ def calorie_counting_top_n(top_n=3):
                 stack_insert(buffer)
                 buffer = 0
             else:
-                buffer += int(line.rstrip("\n"))
+                buffer += int(line.rstrip())
     return sum(stack_insert(buffer))
 
 
