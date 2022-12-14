@@ -20,7 +20,7 @@ def calorie_counting():
                 max_calorie = max(max_calorie, buffer)
                 buffer = 0
             else:
-                buffer += int(line.rstrip("\n"))
+                buffer += int(line.rstrip())
     return buffer if buffer > max_calorie else max_calorie
 ``` 
 Since the file is being read line by line memory consumption is minimal and we only need 2 variables to store values between loop:
@@ -57,6 +57,6 @@ def calorie_counting_top_n(top_n=3):
                 stack_insert(buffer)
                 buffer = 0
             else:
-                buffer += int(line.rstrip("\n"))
+                buffer += int(line.rstrip())
     return sum(stack_insert(buffer))
 ``` 
