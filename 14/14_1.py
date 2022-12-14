@@ -19,7 +19,6 @@ def regolith_reservoir():
                     for cell in range(to_y-from_y+1):
                         rock_grid[from_y+cell][from_x] = "#"
 
-        rock_grid[0][sand_filling_point] = "+"
         sand_units = 0
         sand_x,sand_y= sand_filling_point,0
         while(True):
