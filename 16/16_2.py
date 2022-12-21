@@ -1,6 +1,7 @@
 import re
 import collections
-import copy
+from itertools import combinations 
+import math
 
 def shortest_path(graph, start):
   queue = collections.deque([(start,1)])
@@ -39,9 +40,22 @@ def optimal_pressure_release():
           "flow": int(result[1]),
           "tunnels": result[2:]
         }
+    candidates = []
     for node in graph:
       graph[node]["paths"] = {k:v for k,v in shortest_path(graph, node).items() if graph[k]["flow"] > 0 and node != k}
-    return find_optimal_path(graph, "AA", 30, 0, ["AA"])
+      if(graph[node]["flow"] > 0):
+        candidates.append(node)
+    
+    best_candidates = 0
+    for index in range(math.ceil(len(candidates)/2)+1):
+      path_combinations = combinations(candidates, index)
+      for nodes in path_combinations:
+        elf_nodes = list(nodes)
+        elephant_nodes = [node for node in candidates if node not in elf_nodes]
+        elf = find_optimal_path(graph, "AA", 26, 0, ["AA"]+elf_nodes)
+        elephant = find_optimal_path(graph, "AA", 26, 0, ["AA"]+elephant_nodes)
+        best_candidates = max(best_candidates, elf+elephant)
+    return best_candidates
 
 print(optimal_pressure_release())
 
