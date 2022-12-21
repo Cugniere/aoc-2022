@@ -1,6 +1,5 @@
 import re
 import collections
-import copy
 
 def shortest_path(graph, start):
   queue = collections.deque([(start,1)])
